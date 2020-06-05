@@ -25,22 +25,22 @@ const Info = (props) => {
   const { zipCode } = props;
   if (zipCode) {
     display = zipCode.map((e) => (
-      <>
-        <ol key={uuidv4()} style={styles}>
-          <li key={uuidv4()}>
+      <div key={uuidv4()}>
+        <ol style={styles}>
+          <li>
             City:
             {e.city}
           </li>
-          <li key={uuidv4()}>
+          <li>
             State:
             {e.state}
           </li>
-          <li key={uuidv4()}>
+          <li>
             Country:
             {e.country}
           </li>
         </ol>
-      </>
+      </div>
     ));
   } else {
     display = <></>;
