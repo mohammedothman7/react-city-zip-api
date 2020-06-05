@@ -6,8 +6,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <h1>Hello World!</h1>
-        <ZipCode zip="10304" />
+        <ZipCode />
       </>
     );
   }
