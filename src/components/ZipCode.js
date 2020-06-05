@@ -32,6 +32,11 @@ class ZipCode extends Component {
         this.setState({ zipCode });
       })
       .catch((err) => {
+        /*Clear the state if invalid input, 
+        this is to clear the screen of previous results if error */
+        this.setState({
+          zipCode: [],
+        });
         alert("Could not find city with that zip code");
       });
   };
@@ -44,13 +49,15 @@ class ZipCode extends Component {
   render() {
     return (
       <>
-        <h3>Zip Code</h3>
+        <h3 style={headerStyle}>Zip Code</h3>
         <input
           type="textarea"
           onChange={this.setZip}
           value={this.state.zip}
+          placeholder="Enter Zip Code"
+          style={searchBarStyle}
         ></input>
-        <button type="submit" onClick={this.getZipCode}>
+        <button type="submit" onClick={this.getZipCode} style={buttonStyle}>
           Submit
         </button>
 
@@ -59,5 +66,25 @@ class ZipCode extends Component {
     );
   }
 }
+
+const headerStyle = {
+  textAlign: "center",
+  color: "white",
+  fontSize: "xx-large",
+};
+
+const searchBarStyle = {
+  textAlign: "left",
+  width: "250px",
+  margin: "4px auto",
+  display: "inline-block",
+};
+
+const buttonStyle = {
+  fontWeight: "bold",
+  "&:hover": {
+    background: "#18191a",
+  },
+};
 
 export default ZipCode;
