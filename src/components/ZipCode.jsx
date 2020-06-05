@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import Info from "./Info";
-import axios from "axios";
+import React, { Component } from 'react';
+import Info from './Info';
+import axios from 'axios';
 
 class ZipCode extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      zip: "",
+      zip: '',
       zipCode: [],
     };
   }
@@ -14,7 +14,7 @@ class ZipCode extends Component {
   getZipCode = () => {
     // Calls the API and gets the data from the zip
     const zip = this.state.zip;
-    const key = "http://ctp-zip-api.herokuapp.com/zip/";
+    const key = 'http://ctp-zip-api.herokuapp.com/zip/';
     const url = key + zip;
     axios
       .get(url)
@@ -37,7 +37,7 @@ class ZipCode extends Component {
         this.setState({
           zipCode: [],
         });
-        alert("Could not find city with that zip code");
+        alert('Could not find city with that zip code');
       });
   };
 
@@ -51,13 +51,13 @@ class ZipCode extends Component {
       <>
         <h3 style={headerStyle}>Zip Code</h3>
         <input
-          type="textarea"
+          type='textarea'
           onChange={this.setZip}
           value={this.state.zip}
-          placeholder="Enter Zip Code"
+          placeholder='Enter Zip Code'
           style={searchBarStyle}
         ></input>
-        <button type="submit" onClick={this.getZipCode} style={buttonStyle}>
+        <button type='submit' onClick={this.getZipCode} style={buttonStyle}>
           Submit
         </button>
 
@@ -68,22 +68,22 @@ class ZipCode extends Component {
 }
 
 const headerStyle = {
-  textAlign: "center",
-  color: "white",
-  fontSize: "xx-large",
+  textAlign: 'center',
+  color: 'white',
+  fontSize: 'xx-large',
 };
 
 const searchBarStyle = {
-  textAlign: "left",
-  width: "250px",
-  margin: "4px auto",
-  display: "inline-block",
+  textAlign: 'left',
+  width: '250px',
+  margin: '4px auto',
+  display: 'inline-block',
 };
 
 const buttonStyle = {
-  fontWeight: "bold",
-  "&:hover": {
-    background: "#18191a",
+  fontWeight: 'bold',
+  '&:hover': {
+    background: '#18191a',
   },
 };
 
